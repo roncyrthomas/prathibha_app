@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prathibhaapp/login_page.dart';
+import 'package:prathibhaapp/login.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = "welcome_screen";

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prathibhaapp/login_page.dart';
+import 'package:prathibhaapp/login.dart';
 import 'package:prathibhaapp/welcome_screen.dart';
 
 void main() {
