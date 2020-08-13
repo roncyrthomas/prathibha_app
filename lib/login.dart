@@ -20,7 +20,17 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                Hero(
+                  tag: "logo",
+                  child: Container(
+                    height: 70,
+                    child: Image(
+                      image: AssetImage("assets/final.png"),
+                    ),
+                  ),
+                ),
                 SizedBox(
+                  height: 40,
                   width: double.infinity,
                 ),
                 Container(

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:prathibhaapp/constants.dart';
+import 'package:prathibhaapp/homepage.dart';
 
 class LoginContainer extends StatelessWidget {
   @override
@@ -73,7 +74,9 @@ class LoginContainer extends StatelessWidget {
                 "Login",
                 style: TextStyle(color: Colors.white),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, HomePage.id);
+              },
             ),
           ),
           InkWell(
@@ -113,7 +116,7 @@ class LoginContainer extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left: 15.0),
                 child: Text(
-                  "New User?Create an Account",
+                  "New User? Create an Account",
                   style: TextStyle(color: Colors.blue),
                 ),
               ),

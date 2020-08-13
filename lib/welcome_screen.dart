@@ -55,7 +55,10 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 Expanded(
                     child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Image.asset("assets/final.png"),
+                  child: Hero(
+                    tag: "logo",
+                    child: Image.asset("assets/final.png"),
+                  ),
                 ))
               ],
             ),
