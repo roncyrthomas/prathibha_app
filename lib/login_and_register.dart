@@ -4,6 +4,8 @@ import 'package:prathibhaapp/constants.dart';
 import 'package:prathibhaapp/homepage.dart';
 
 class LoginContainer extends StatelessWidget {
+  final Function func;
+  LoginContainer({this.func});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -121,7 +123,7 @@ class LoginContainer extends StatelessWidget {
                 ),
               ),
             ),
-            onTap: () {},
+            onTap: func,
           ),
         ],
       ),
@@ -130,6 +132,8 @@ class LoginContainer extends StatelessWidget {
 }
 
 class RegisterContainer extends StatelessWidget {
+  final bool active;
+  RegisterContainer(this.active);
   @override
   Widget build(BuildContext context) {
     return Container(

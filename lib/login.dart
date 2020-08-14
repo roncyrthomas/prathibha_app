@@ -10,6 +10,11 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool active = true;
+  void changePage() {
+    setState(() {
+      active = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +101,11 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Container(
                   width: 300,
-                  child: active ? LoginContainer() : RegisterContainer(),
+                  child: active
+                      ? LoginContainer(
+                          func: changePage,
+                        )
+                      : RegisterContainer(active),
                 ),
               ],
             ),

@@ -11,16 +11,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text("Roncy R Thomas"),
+              accountEmail: Text("roncy516@gmail.com"),
+            )
+          ],
         ),
+      ),
+      appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Hero(
