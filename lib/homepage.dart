@@ -3,6 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:prathibhaapp/constants.dart';
+import 'package:prathibhaapp/grid_page.dart';
 
 class HomePage extends StatefulWidget {
   static const String id = "home_page";
@@ -13,14 +14,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _page = 0;
   GlobalKey _bottomNavigationKey = GlobalKey();
-  Widget cont = Text("Hello");
+  Widget cont = HomeContainer();
   GlobalKey _scaffoldKey = new GlobalKey();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(kContainerColor),
         appBar: AppBar(
           backgroundColor: Colors.white,
           iconTheme: IconThemeData(color: Colors.black),
@@ -102,40 +103,22 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        body: Container(
-          color: Color(kContainerColor),
-          child: Column(
-            children: <Widget>[
-              Container(
-                width: double.infinity,
-                height: 200,
-                child: Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Carousel(
-                    dotSize: 5,
-                    images: [
-                      AssetImage(
-                        "assets/n1.png",
-                      ),
-                      AssetImage(
-                        "assets/p1.png",
-                      ),
-                      AssetImage(
-                        "assets/o1.png",
-                      ),
-                    ],
-                  ),
-                ),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+              child: Container(
+                color: Color(kContainerColor),
+                child: cont,
               ),
-              cont,
-            ],
+            ),
           ),
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
           child: CurvedNavigationBar(
             key: _bottomNavigationKey,
-            index: 0,
+            index: 2,
             height: 50.0,
             items: <Widget>[
               NavbarItem(
@@ -167,12 +150,48 @@ class _HomePageState extends State<HomePage> {
             onTap: (index) {
               setState(() {
                 _page = index;
-                cont = Text(_page.toString(), textScaleFactor: 10.0);
+                if (index == 2) {
+                  cont = HomeContainer();
+                } else {
+                  cont = Text(" You Are At Page :$_page", textScaleFactor: 2.0);
+                }
               });
             },
           ),
         ),
       ),
+    );
+  }
+}
+
+class HomeContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Container(
+          width: double.infinity,
+          height: 200,
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Carousel(
+              dotSize: 5,
+              images: [
+                AssetImage(
+                  "assets/n1.png",
+                ),
+                AssetImage(
+                  "assets/p1.png",
+                ),
+                AssetImage(
+                  "assets/o1.png",
+                ),
+              ],
+            ),
+          ),
+        ),
+        GridPage(),
+      ],
     );
   }
 }
